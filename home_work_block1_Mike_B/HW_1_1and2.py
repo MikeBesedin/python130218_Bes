@@ -1,0 +1,5 @@
+a = input('Enter your Name: ')
+b = input('Enter your Last Name: ')
+c = input('Enter your Patronymic Name: ')
+print('Hello, World! Hello %s!' % a)
+print(a,b,c, sep='|')
