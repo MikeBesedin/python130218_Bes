@@ -12,25 +12,3 @@ for i in file:
 
 print('Total amount of sting in file is', str(string_count))
 file.close()
-''' 
-В сети нашел такое решение, но для меня не ясен момент с флагами, можно объяснить на лекции?
-Выглядит интересно:
-f = open('text.txt')
-line = 0
-for i in f:
-    line += 1
- 
-    flag = 0
-    word = 0
-    for j in i:
-        if j != ' ' and flag == 0:
-            word += 1
-            flag = 1
-        elif j == ' ':
-            flag = 0
- 
-    print(i,len(i),'симв.',word,'сл.')
- 
-print(line,'стр.')
-f.close()
-'''
