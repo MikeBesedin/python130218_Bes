@@ -5,4 +5,4 @@ def recursion_n(n):
         return n % 10 + recursion_n(n//10)
 print(recursion_n(777))
 
-#удобный для изучения данного вопроса ресурс http://pythontutor.ru/lessons/functions/
+#удобный для изучения данного вопроса ресурс с построчным выполнением кода http://pythontutor.ru/lessons/functions/

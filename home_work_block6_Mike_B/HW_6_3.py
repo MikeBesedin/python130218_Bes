@@ -4,17 +4,30 @@ list_of_keys = ['name', 'surname', 'sex', 'age']
 for line in file:
     string = line.replace('\n', '')
     list_line = string.split(sep=' ')
-    dict_line = dict(zip(list_of_keys, list_line))
+    dict_line = dict(zip(list_of_keys, list_line)) # dict(zip(keyz, valuez))
     list_students.append(dict_line)
 
 print(list_students)
-from HW_4_3 import find_stud
-#пока читаю Лутца по модулям, чтобы сделать вызов функции не из папки с исполняемым файлом,
-# а из папки home_work_block4_Mike_B, где функция find_stud изночально лежала
 
-find_stud(list_students)
+import sys
+sys.path.insert(0, '/home/linux/GitHub/python130218_Bes')
+print(sys.path)
+from home_work_block4_Mike_B.HW_4_3 import find_stud
+
 file.close()
 '''
+другой вариант ипорта модуля выполняется, но с ошибкой, почему?
+import sys
+sys.path.insert(0, '/home/linux/GitHub/python130218_Bes/home_work_block4_Mike_B')
+print(sys.path)
+from HW_4_3.py import find_stud
+             \/
+Traceback (most recent call last):
+  File "/home/linux/GitHub/python130218_Bes/home_work_block6_Mike_B/HW_6_3.py", line 15, in <module>
+    from HW_4_3.py import find_stud
+ImportError: No module named 'HW_4_3.py'; 'HW_4_3' is not a package
+
+просто копия кода из HW_4_3.py чтобы было перед глазами:
 list_students = [
     {'name': 'Ivan', 'surname': 'Borisenko', 'sex': 'male', 'age': '29'},
     {'name': 'Alex', 'surname': 'Zabolockii', 'sex': 'male', 'age': '28'},
