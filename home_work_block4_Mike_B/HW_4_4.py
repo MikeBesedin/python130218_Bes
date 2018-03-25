@@ -1,3 +1,23 @@
+'''Задача 4*
+Дана квадратная матрица А(N,N). Составить программу подсчета количества положительных элементов,
+расположенных выше главной диагонали.
+'''
+def do_HW_4_4():
+    N = int(input('Введите кол-во строк = кол-ву столбцов одним целым числом: '))
+    from matrix_module import matrix_with_input_col_and_row_numbers
+    matrix = matrix_with_input_col_and_row_numbers()
+    amount = 0
+    if N == len(matrix):
+        for i in range(N):
+            for j in range(N):
+                if i < j and matrix[i][j] >= 0:
+                    amount += 1
+        print('Amount of positive elements above main diag: ' + str(amount))
+    else:
+        print('зря меня не послушались....')
+do_HW_4_4()
+'''
+#изначальный вариант, до модульной структуры:
 import random
 matrix = []
 N = 4
@@ -12,6 +32,4 @@ for i in range(N):
     for j in range(N):
         if i < j and matrix[i][j] >= 0:
             amount += 1
-
-
-print('Amount of positive elements above main diag: ' + str(amount))
+print('Amount of positive elements above main diag: ' + str(amount))'''

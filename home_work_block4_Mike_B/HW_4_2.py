@@ -1,9 +1,26 @@
+'''Задача 2
+Дана вещественная матрица А(3,4). Составить программу подсчета количества элементов матрицы,
+удовлетворяющих условию р1<=a(i,j)<=p2. Значения р1 и р2 запрашиваются у пользователя.
+'''
+def do_HW_4_2():
+    from matrix_module import matrix_with_input_col_and_row_numbers
+    matrix = matrix_with_input_col_and_row_numbers()
+    p1 = int(input('enter floor integer in range (1, 10): '))
+    p2 = int(input('enter ceiling range integer in range (1, 10): '))
+    numbers_of_elem = 0
+    for row in matrix:
+        for elem in row:
+            if p1 <= elem <= p2:
+                numbers_of_elem += 1
+    print()
+    print('Amount of elements in matrix between {} and {} is {}'.format(p1, p2, numbers_of_elem))
+do_HW_4_2()
+'''
+#изначальный вариант, до модульной структуры:
 import random
 matrix = []
 NROW = 3
 NCOL = 4
-p1 = int(input('enter floor integer in range (1, 10): '))
-p2 = int(input('enter ceiling range integer in range (1, 10): '))
 print('Your random matrix is:')
 for i in range(NROW):
     row = []
@@ -11,11 +28,13 @@ for i in range(NROW):
         row.append(random.randrange(1,11))
     matrix.append(row)
     print(row)
-
+    
+p1 = int(input('enter floor integer in range (1, 10): '))
+p2 = int(input('enter ceiling range integer in range (1, 10): '))
 numbers_of_elem = 0
 for row in matrix:
     for elem in row:
         if p1 <= elem <= p2:
             numbers_of_elem += 1
 print()
-print('Amount of elements in matrix between {} and {} is {}'.format(p1, p2, numbers_of_elem))
+print('Amount of elements in matrix between {} and {} is {}'.format(p1, p2, numbers_of_elem))'''
