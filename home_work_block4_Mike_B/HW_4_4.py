@@ -3,7 +3,7 @@
 расположенных выше главной диагонали.
 '''
 def do_HW_4_4():
-    N = int(input('Введите кол-во строк = кол-ву столбцов одним целым числом: '))
+    N = int(input('Введите кол-во строк = кол-ву столбцов одним целым числом и далее в матрице вводите тоже число: '))
     from matrix_module import matrix_with_input_col_and_row_numbers
     matrix = matrix_with_input_col_and_row_numbers()
     amount = 0
@@ -14,7 +14,7 @@ def do_HW_4_4():
                     amount += 1
         print('Amount of positive elements above main diag: ' + str(amount))
     else:
-        print('зря меня не послушались....')
+        print('')
 do_HW_4_4()
 '''
 #изначальный вариант, до модульной структуры:
