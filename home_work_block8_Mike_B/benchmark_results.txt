@@ -1,0 +1,3 @@
+time to do this func: 1.0044186115264893
+name func is: lots_of_numbers
+given arg: 777
