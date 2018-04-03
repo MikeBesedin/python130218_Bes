@@ -1,3 +1,6 @@
+'''Вводятся строки. Определить самую длинную строку и вывести ее номер на экран.
+Если самая длинная строка повторяется несколько раз, то вывести номера всех таких строк.'''
+
 numbers_of_strings = 4
 string_list = []
 for i in range(numbers_of_strings):
@@ -16,12 +19,7 @@ for i in range(numbers_of_strings):
 
 print('The list of longest entered strings numbers: {}'.format(longest_stirngs_list))
 
-#Сергей, хэлп плз! Изначально код, ниже закоментированный, был не красив, зато свой:
-''' 
-Почему при вводе двух или более идентичных строк, программа выдает только номер первой встречаемой длинной строки?
-Например, если ввести во всех строках по единице. Потратил уйму времени, но так ошибку и не осознал. 
-Хочу разобраться, уже дело чести, как говориться =)
-
+''' Первоначальный код без гугла был не так лаконичен:
 string_num = 4
 string_list = []
 for i in range(string_num):
@@ -32,20 +30,20 @@ biggest_string_lenth = 0
 list_num_print = []
 string_list_num = 0
 
+nomer_stroki = 0
 for i in string_list:
+    nomer_stroki += 1
     if len(i) > biggest_string_lenth:
         biggest_string_lenth = len(i)
-        string_list_num = string_list.index(i) + 1
         list_num_print.clear()
-        list_num_print.append(string_list_num)
-print(list_num_print)
+        list_num_print.append(nomer_stroki)
 
 list_num_print = set(list_num_print)
-
+nomer_stroki = 0
 for i in string_list:
+    nomer_stroki += 1
     if len(i) == biggest_string_lenth:
-        index = string_list.index(i) + 1
-        list_num_print.add(index)
+        list_num_print.add(nomer_stroki)
 
 print(list_num_print)
 '''
