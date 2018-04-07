@@ -7,6 +7,7 @@
 import sys
 sys.path.insert(0, '/home/linux/GitHub/python130218_Bes')
 from home_work_block4_Mike_B.matrix_module import matrix_with_input_col_and_row_numbers
+print('Сперва сделаем матрицу для работы с ней далее:')
 matrix = matrix_with_input_col_and_row_numbers()
 '''
 #Сделал, чтобы подгружало модуль матрицы в шапке программы и далее отрабатывало этот рандомный экземпляр
@@ -39,7 +40,10 @@ while task_N != 5:
         from home_work_block4_Mike_B.HW_4_2 import do_HW_4_2
         do_HW_4_2(matrix)
     elif task_N == 3:
-        from home_work_block4_Mike_B.HW_4_3 import do_HW_4_3
+        from home_work_block4_Mike_B.HW_4_3 import find_stud, list_students
+        #exec('import home_work_block4_Mike_B.HW_4_3') # exec думал применять для совместимости модуля HW_4_3
+        #  со следующими заданиями (HW_7_2), но придумал лучшее решение, тогда не надо коментить вызов функции в модуле
+        find_stud(list_students)
     elif task_N == 4:
         from home_work_block4_Mike_B.HW_4_4 import do_HW_4_4
         do_HW_4_4(matrix)
