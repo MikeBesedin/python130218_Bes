@@ -21,6 +21,10 @@ push 3
 push 14
 '''
 L = []
+#action, elem = input().split()  если значение n задается через пробел после push одним пользовательским вводом,
+#но тогда надо переделывать код. А как предполагался ввод пользователем? одновременный push 12?
+#Ведь изначально я понял условие как для одтельных вода действия и ввода символа:
+
 while True:
     action = input('For working with stack print one of these: push, pop, back, clear, exit: ')
     if action == 'push':
