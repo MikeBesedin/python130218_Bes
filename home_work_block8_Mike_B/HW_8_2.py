@@ -11,7 +11,7 @@ def exeptions_dec(func):  # декоратор для обработки иск�
         try:
             func(*args, **kwargs)
         except (NotImplementedError, TypeError, AttributeError) as er:
-            print('There is no volume for figure like rectangle and triangle\nError:', er)
+            print('There is no Volume for figure like rectangle and triangle\nError:', er)
         return func
     return inner
 

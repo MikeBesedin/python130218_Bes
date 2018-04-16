@@ -6,9 +6,7 @@
 
 import json
 
-
-# create a class with method to find students according to the search mask
-class Finder:
+class Finder: #базовый клас с созданием словаря параметров поиска и метода поиска совпадений
     def __init__(self):
         self.dict_check = {'name': '', 'surname': '', 'sex': '', 'age': ''}  # create a dictionary with empty values
         self.dict_check = self.search_info()  # Ask function search_info
@@ -20,21 +18,21 @@ class Finder:
         return self.dict_check
 
     def find(self):
-        find_numbers = 0  # count how many parameters we use to search the student
+        find_numbers = 0
+        flag_of_matches = 0
         for value in self.dict_check.values():
             if value: find_numbers += 1
-        number = 0  # check if there are students in our list with input information
         for dic in self.stud_dict:
             if dic.items() & self.dict_check.items() and len(dic.items() & self.dict_check.items()) == find_numbers:
-                number += 1
-                print('{}. {} {}, {} years old, {}'.format(number, dic['surname'], dic['name'], dic['age'], dic['sex']))
-
-        if number == 0:  # print result if there is no coincidence
+                flag_of_matches += 1
+                print('Position in list #{}, surname {}, name {}, age {} , {}.'.format(self.stud_dict.index(dic) + 1,
+                                                                                       dic['surname'],
+                                                                                       dic['name'], dic['age'],
+                                                                                       dic['sex']))
+        if flag_of_matches == 0:
             print('There are no students with input data')
 
-
-# create a subclass that will modify data from file.txt  to the view of search mask
-class TextFile(Finder):
+class TextFile(Finder): # создаем словарь из тхтфайла
     def __init__(self):
         super().__init__()
         with open(file_name) as text_file:
@@ -42,9 +40,7 @@ class TextFile(Finder):
         keys = ['surname', 'name', 'sex', 'age']
         self.stud_dict = [dict(zip(keys, values)) for values in self.stud_list]
 
-
-# create a subclass that will modify data from file.json  to the view of search mask
-class JsonFile(Finder):
+class JsonFile(Finder): # создаем словарь из джейсонфайла
     def __init__(self):
         super().__init__()
         self.stud_dict = []
@@ -52,17 +48,17 @@ class JsonFile(Finder):
             for line in json_file:
                 self.stud_dict.append(json.loads(line))
 
-
-type_files = {'txt': TextFile, 'json': JsonFile}  # dict with key as filename extension and value as subclass name
-while True:  # circle to input file name and run the find procedure
-    file_name = input('Please, input the file name or "Q" to quit:\n')
-    if file_name.upper() == 'Q':
+while True: # цикл для определиния формата вводимого к обработке файла
+    file_name = input('Please, input the file name or "0" to quit: ')
+    if file_name == '0':
         break
     file_name_list = file_name.split('.')
-    file_to_do = type_files.get(file_name_list[-1])  # check if if file type is supported by module
-    if file_to_do is None:
-        print('This file type is not supported\n Please, use only .txt ot .json files')
-        continue
+    if file_name_list[-1] == 'txt':
+        file_to_process = TextFile()
+        file_to_process.find()
+    elif file_name_list[-1] == 'json':
+        file_to_process = JsonFile()
+        file_to_process.find()
     else:
-        file_to_do = file_to_do()  # create an instance of subclass
-file_to_do.find() # run the method of instance
+        print('Only .txt ot .json files can be processed!')
+        continue
